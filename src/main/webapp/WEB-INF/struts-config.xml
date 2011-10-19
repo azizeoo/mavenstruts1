@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE struts-config PUBLIC 
+    "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+    "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="formePersonne"
+			type="ma.norsys.technomaker.mavenstruts1.actionForm.FormulaireBean"></form-bean>
+	</form-beans>
+	<global-forwards>
+		<forward name="response" path="/vues/reponse.jsp" />
+	</global-forwards>
+	<action-mappings>
+		<action path="/monnom" parameter="/vues/mapage.jsp"
+			type="org.apache.struts.actions.ForwardAction" />
+
+
+		<action path="/formulaire" parameter="/vues/formulaire.jsp"
+			type="org.apache.struts.actions.ForwardAction" />
+
+		<action path="/erreurs" parameter="/vues/erreurs.jsp"
+			type="org.apache.struts.actions.ForwardAction" />
+
+		<action path="/main" name="formePersonne" scope="session"
+			validate="true" input="/erreurs.do" 
+			type="ma.norsys.technomaker.mavenstruts1.action.FormulaireAction">
+
+
+		</action>
+
+	</action-mappings>
+
+	<message-resources parameter="erreur" null="false"
+		key="erreur" />
+	<message-resources parameter="classique" null="false"
+		key="classique" />
+
+</struts-config>
